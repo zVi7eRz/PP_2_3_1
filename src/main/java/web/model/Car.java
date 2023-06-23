@@ -4,7 +4,9 @@ public class Car {
     private String color;
     private String model;
     private Long serials;
+
     public Car() {}
+
     public Car(String color, String model, Long serials) {
         this.color = color;
         this.model = model;
