@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model) {
+    public String show(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.show(id));
         return "show";
     }
@@ -41,17 +41,17 @@ public class UserController {
         return "redirect:/users";
     }
     @GetMapping("/{id}/edit")
-    public  String editUser(@PathVariable("id") int id, Model model) {
+    public  String editUser(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.show(id));
         return "edit";
     }
     @PatchMapping("/{id}")
-    public String updateUser(@ModelAttribute("users") User user, @PathVariable("id") int id) {
-        userService.updateUser(id, user);
+    public String updateUser(@ModelAttribute("users") User user) {
+        userService.updateUser(user);
         return "redirect:/users";
     }
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable("id") int id) {
+    public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
         return "redirect:/users";
     }
